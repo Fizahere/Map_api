@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script 
+    src="https://maps.googleapis.com/maps/api/js"></script>
+</script>
+    <title>Document</title>
+    <style>
+        #demo{
+            height: 600px;
+            width: 400px;
+        }
+    </style>
+
+</head>
+<body>
+        <h1 class="h1">Geolocation</h1>
+        <button onclick="getC()" type="submit">Get location</button>
+        <div id="demo"></div>
+    <script>
+        var a=document.getElementById("demo");
+        function getC(){
+        if(navigator.geolocation){
+ alert("supporting")
+ navigator.geolocation.getCurrentPosition(getcoordinates);
+}
+       else{
+alert("not supporting");
+ }
+ }
+ function getcoordinates(pos){
+    a.innerHTML="longitude"+ pos.coords.longitude+"latitude"+pos.coords.latitude;
+
+    var latlng= new google.maps.LatLng(23.08395, 72.58926);
+    var map=new google.maps.Map(a,{
+        center:latlng,
+        zoom:100,
+        mapTypeId:"terrain"
+    })
+    // var marker=new google.maps.marker({
+    //     position: latlng,
+    //     map:map,
+    //     drag:true
+    // })
+ }
+    </script>
+</body>
+</html>
